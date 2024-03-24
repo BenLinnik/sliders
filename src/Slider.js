@@ -2,12 +2,10 @@ import React from 'react';
 import './Slider.css';
 
 function Slider({ title, min, max, step, value, onChange, unit }) {
-  // Direkte Verwendung von 'value' und 'onChange' aus den Props
-
   return (
     <div className="slider-container">
-      <label className="slider-label">
-        <span>{title}</span>
+      <div className="slider-title">{title}</div>
+      <div className="slider-wrapper">
         <input
           type="range"
           min={min}
@@ -17,17 +15,8 @@ function Slider({ title, min, max, step, value, onChange, unit }) {
           className="slider"
           onChange={onChange}
         />
-        <input
-          type="number"
-          value={value}
-          className="slider-value"
-          onChange={onChange}
-          min={min}
-          max={max}
-          step={step}
-        />
-        {unit}
-      </label>
+        <div className="slider-value-display">{value.toFixed(1)} {unit}</div>
+      </div>
     </div>
   );
 }

@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Stellt sicher, dass die App den ganzen Viewport einnimmt */
+  margin: 0 auto; /* Zentriert die App */
+  padding: 20px; /* Fügt etwas Abstand hinzu */
+  box-sizing: border-box; /* Stellt sicher, dass Padding und Border innerhalb der Breite enthalten sind */
+}
+
+@media (max-width: 600px) {
+  /* Stile für kleinere Bildschirme */
+  .App {
+    flex-direction: column;
+  }
+}

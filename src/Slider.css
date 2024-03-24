@@ -1,25 +1,30 @@
 .slider-container {
   display: flex;
-  justify-content: center;
-  margin: 20px 0;
-}
-
-.slider-label {
-  display: grid;
-  grid-template-columns: 15em 15em auto auto; /* Platz für Label, Schieberegler, Wert und Einheit */
+  flex-direction: column;
   align-items: center;
-  gap: 10px;
+  width: 100%; /* Stellt sicher, dass der Container die volle Breite einnimmt */
+  min-width: 40vw;
 }
 
-.slider-label > span { /* Annahme, dass das Label in einem <span> umschlossen ist */
-  text-align: right; /* Rechtsbündige Ausrichtung des Textes */
+.slider-title {
+  font-size: 1.2em;
+}
+
+.slider-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%; /* Stellt sicher, dass der Wrapper die volle Breite einnimmt */
 }
 
 .slider {
-  grid-column: 2 / 3; /* Stellt den Schieberegler in die mittlere Spalte */
+  width: 100%; /* Stellt sicher, dass der Slider die volle Breite des Wrappers einnimmt */
+  border-radius: 5px;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
 }
 
-.slider-value {
-  width: 3em; /* Größe des Eingabefeldes */
-  grid-column: 3 / 4; /* Stellt das Eingabefeld in die rechte Spalte */
+.slider-value-display {
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.9em;
 }
