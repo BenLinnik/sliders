@@ -1,0 +1,26 @@
+.slider-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.slider-label {
+  display: grid;
+  grid-template-columns: 15em 15em auto auto; /* Platz für Label, Schieberegler, Wert und Einheit */
+  align-items: center;
+  gap: 10px;
+}
+
+.slider-label > span { /* Annahme, dass das Label in einem <span> umschlossen ist */
+  text-align: right; /* Rechtsbündige Ausrichtung des Textes */
+  white-space: nowrap; /* Verhindert Zeilenumbrüche im Label */
+}
+
+.slider {
+  grid-column: 2 / 3; /* Stellt den Schieberegler in die mittlere Spalte */
+}
+
+.slider-value {
+  width: 3em; /* Größe des Eingabefeldes */
+  grid-column: 3 / 4; /* Stellt das Eingabefeld in die rechte Spalte */
+}
