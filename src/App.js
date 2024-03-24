@@ -5,14 +5,19 @@ import './App.css';
 function App() {
   const MIN_JAHRESTAGESINVEST = 50;
   const MAX_JAHRESTAGESINVEST = 210;
-  const MIN_GEWINNBETEILIGUNG = 1;
+  const MIN_GEWINNBETEILIGUNG = 0.5;
   const MAX_GEWINNBETEILIGUNG = 10;
   const MIN_STUNDENSATZ = 0;
   const MAX_STUNDENSATZ = 120;
 
-  const [jahrestagesinvest, setJahrestagesinvest] = useState(100);
+  const FAKTOR_JAHRESAUFWAND = -9;
+  const FAKTOR_BETEILIGUNG = 640;
+  const FAKTOR_STUNDENSATZ = 72;
+  const KONSTANTE = -6580;
+
+  const [jahrestagesinvest, setJahrestagesinvest] = useState(101);
   const [gewinnbeteiligung, setGewinnbeteiligung] = useState(5);
-  const [stundensatz, setStundensatz] = useState(50.65);
+  const [stundensatz, setStundensatz] = useState(52.1);
 
   const [fixJahrestagesinvest, setFixJahrestagesinvest] = useState(false);
   const [fixGewinnbeteiligung, setFixGewinnbeteiligung] = useState(false);
@@ -20,11 +25,11 @@ function App() {
 
   const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 
-  const calculateG = (J, S) => clamp((10100 + 36 * J - 153 * S) / 1190, MIN_GEWINNBETEILIGUNG, MAX_GEWINNBETEILIGUNG);
-  const calculateJ = (G, S) => clamp((10100 - 1190 * G - 153 * S) / -36, MIN_JAHRESTAGESINVEST, MAX_JAHRESTAGESINVEST);
-  const calculateS = (J, G) => clamp((10100 + 36 * J - 1190 * G) / 153, MIN_STUNDENSATZ, MAX_STUNDENSATZ);
+  const calculateG = (J, S) => clamp((-KONSTANTE - FAKTOR_JAHRESAUFWAND * J - FAKTOR_STUNDENSATZ * S) / FAKTOR_BETEILIGUNG, MIN_GEWINNBETEILIGUNG, MAX_GEWINNBETEILIGUNG);
+  const calculateJ = (G, S) => clamp((-KONSTANTE - FAKTOR_BETEILIGUNG * G - FAKTOR_STUNDENSATZ * S) / FAKTOR_JAHRESAUFWAND, MIN_JAHRESTAGESINVEST, MAX_JAHRESTAGESINVEST);
+  const calculateS = (J, G) => clamp((-KONSTANTE - FAKTOR_JAHRESAUFWAND * J - FAKTOR_BETEILIGUNG * G) / FAKTOR_STUNDENSATZ, MIN_STUNDENSATZ, MAX_STUNDENSATZ);
 
-  const isValidOnPlane = (J, G, S) => Math.abs(-36 * J + 1190 * G + 153 * S - 10100) < 0.1;
+  const isValidOnPlane = (J, G, S) => Math.abs(FAKTOR_JAHRESAUFWAND * J + FAKTOR_BETEILIGUNG * G + FAKTOR_STUNDENSATZ * S + KONSTANTE) < 0.1;
 
   function adjustValuesToPlane(J, G, S, fixJ, fixG, fixS) {
     if (!fixJ && !fixG && !fixS) {
@@ -102,7 +107,7 @@ function App() {
       <h1>Meine Schieberegler</h1>
       <div>
         <Slider
-          title="Jahrestagesinvest"
+          title="Jahrestagesinvest (um Beiteiligung zu erhalten)"
           min={MIN_JAHRESTAGESINVEST}
           max={MAX_JAHRESTAGESINVEST}
           step={1}

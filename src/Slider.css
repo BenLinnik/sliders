@@ -13,7 +13,6 @@
 
 .slider-label > span { /* Annahme, dass das Label in einem <span> umschlossen ist */
   text-align: right; /* Rechtsbündige Ausrichtung des Textes */
-  white-space: nowrap; /* Verhindert Zeilenumbrüche im Label */
 }
 
 .slider {
