@@ -10,14 +10,14 @@ function App() {
   const MIN_STUNDENSATZ = 0;
   const MAX_STUNDENSATZ = 120;
 
-  const FAKTOR_JAHRESAUFWAND = -261;
-  const FAKTOR_BETEILIGUNG = 12800;
-  const FAKTOR_STUNDENSATZ = 1440;
-  const KONSTANTE = -113780;
+  const FAKTOR_JAHRESAUFWAND = -2;
+  const FAKTOR_BETEILIGUNG = 80;
+  const FAKTOR_STUNDENSATZ = 9;
+  const KONSTANTE = -770;
 
   const [jahrestagesinvest, setJahrestagesinvest] = useState(160);
   const [gewinnbeteiligung, setGewinnbeteiligung] = useState(5);
-  const [stundensatz, setStundensatz] = useState(63.6);
+  const [stundensatz, setStundensatz] = useState(74.4);
 
   const [fixJahrestagesinvest, setFixJahrestagesinvest] = useState(false);
   const [fixGewinnbeteiligung, setFixGewinnbeteiligung] = useState(false);
@@ -146,7 +146,7 @@ function App() {
         title="Stundensatz"
         min={MIN_STUNDENSATZ}
         max={MAX_STUNDENSATZ}
-        step={0.01}
+        step={1}
         value={stundensatz}
         onChange={e => handleStundensatzChange(e.target.value)}
         unit=" Euro"

@@ -15,7 +15,16 @@ function Slider({ title, min, max, step, value, onChange, unit }) {
           className="slider"
           onChange={onChange}
         />
-        <div className="slider-value-display">{value.toFixed(1)} {unit}</div>
+        <input
+          type="number"
+          value={value.toFixed(1)}
+          className="slider-value"
+          onChange={onChange}
+          min={min}
+          max={max}
+          step={step}
+        />
+        {unit}
       </div>
     </div>
   );
