@@ -3,8 +3,8 @@ import Slider from './Slider';
 import './App.css';
 
 function App() {
-  const MIN_JAHRESTAGESINVEST = 50;
-  const MAX_JAHRESTAGESINVEST = 210;
+  const MIN_JAHRESTAGESINVEST = 40;
+  const MAX_JAHRESTAGESINVEST = 200;
   const MIN_GEWINNBETEILIGUNG = 0.5;
   const MAX_GEWINNBETEILIGUNG = 10;
   const MIN_STUNDENSATZ = 0;
@@ -17,7 +17,7 @@ function App() {
 
   const [jahrestagesinvest, setJahrestagesinvest] = useState(160);
   const [gewinnbeteiligung, setGewinnbeteiligung] = useState(5);
-  const [stundensatz, setStundensatz] = useState(74.4);
+  const [stundensatz, setStundensatz] = useState(76.7);
 
   const [fixJahrestagesinvest, setFixJahrestagesinvest] = useState(false);
   const [fixGewinnbeteiligung, setFixGewinnbeteiligung] = useState(false);
