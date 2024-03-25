@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   width: 100%; /* Stellt sicher, dass der Container die volle Breite einnimmt */
-  min-width: 40vw;
+  min-width: 50vw;
 }
 
 .slider-title {
@@ -21,10 +21,30 @@
   border-radius: 5px;
   -webkit-transition: .2s;
   transition: opacity .2s;
+  min-width: 50vw;
 }
 
 .slider-value-display {
   padding: 5px 10px;
   border-radius: 4px;
   font-size: 0.9em;
+}
+
+@media (max-width: 800px) {
+  /* Stile für kleinere Bildschirme */
+  .slider-container {
+    min-width: 80vw;
+  }
+  .slider {
+    min-width: 80vw;
+  }
+}
+
+@media (min-width: 2000px) {
+  .slider-container {
+    min-width: 30vw;
+  }
+  .slider {
+    min-width: 30vw;
+  }
 }

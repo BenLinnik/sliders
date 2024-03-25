@@ -125,7 +125,7 @@ function App() {
       <p></p>
       <div>
       <Slider
-        title="Gewinnbeteiligung"
+        title="Beteiligung"
         min={MIN_GEWINNBETEILIGUNG}
         max={MAX_GEWINNBETEILIGUNG}
         step={0.1}
