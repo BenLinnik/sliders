@@ -10,14 +10,14 @@ function App() {
   const MIN_STUNDENSATZ = 0;
   const MAX_STUNDENSATZ = 120;
 
-  const FAKTOR_JAHRESAUFWAND = -7;  // x
-  const FAKTOR_BETEILIGUNG = 260;  // y
-  const FAKTOR_STUNDENSATZ = 24;  // z
-  const KONSTANTE = -1420;
+  const FAKTOR_JAHRESAUFWAND = 9;  // x
+  const FAKTOR_BETEILIGUNG = 860;  // y
+  const FAKTOR_STUNDENSATZ = 70;  // z
+  const KONSTANTE = -9660;
 
   const [jahrestagesinvest, setJahrestagesinvest] = useState(140);
-  const [gewinnbeteiligung, setGewinnbeteiligung] = useState(5);
-  const [stundensatz, setStundensatz] = useState(55);
+  const [gewinnbeteiligung, setGewinnbeteiligung] = useState(6);
+  const [stundensatz, setStundensatz] = useState(46.3);
 
   const [fixJahrestagesinvest, setFixJahrestagesinvest] = useState(false);
   const [fixGewinnbeteiligung, setFixGewinnbeteiligung] = useState(false);
